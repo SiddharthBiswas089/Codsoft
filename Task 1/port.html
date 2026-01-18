@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        /* NAVBAR */
+        nav {
+            width: 100%;
+            background: #111;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav h2 {
+            color: #fff;
+            font-size: 22px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        /* SECTION GLOBAL */
+        section {
+            padding: 100px 90px;
+            border-bottom: 1px solid #2a2727;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2.section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        /* HERO */
+        .hero {
+            background: #353434;
+            color: white;
+            padding-top: 100px;
+            padding-right: 0%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hero-text {
+            width: 50%;
+        }
+
+        .hero-text h1 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .hero-text p {
+            font-size: 16px;
+            line-height: 26px;
+            margin-bottom: 20px;
+        }
+
+        .hero button {
+            background: #007bff;
+            border: none;
+            padding: 12px 25px;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .hero-img {
+            width: 45%;
+        }
+
+        .hero-img img {
+            width: 50%;
+            border-radius: 5px;
+            opacity: 0.85;
+            filter: brightness(0.9);
+        }
+
+        /* ABOUT */
+        .about-content {
+            justify-content: center;
+            text-align: center;
+        }
+
+        .about-text {
+            width: 100%;
+        }
+
+        .about-text p {
+            line-height: 24px;
+            text-align: center;
+        }
+
+        /* RESUME BUTTON */
+        .resume-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 30px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .resume-btn:hover {
+            background: #0056b3;
+        }
+
+        /* SERVICES */
+        .services-box {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .service {
+            width: 30%;
+            background: rgb(167, 165, 165);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 7px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* SKILLS */
+        .skill-item {
+            background: rgb(167, 165, 165);
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        /* EXPERIENCE */
+        .exp-item {
+            background: rgb(167, 165, 165);
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        /* WORKS */
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .work-box {
+            background: rgb(167, 165, 165);
+            padding: 20px;
+            border-radius: 8px;
+            height: 150px;
+        }
+
+        /* TESTIMONIAL */
+        .testimonial {
+            background: rgb(177, 175, 175);
+            padding: 20px;
+            border-radius: 8px;
+            width: 60%;
+            margin: auto;
+            text-align: center;
+        }
+
+        /* BLOG */
+        .blog-post {
+            background: rgb(167, 165, 165);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        /* CONTACT */
+        .contact-box {
+            background: rgb(167, 165, 165);
+            padding: 25px;
+            width: 50%;
+            margin: auto;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .contact-box p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text, .hero-img {
+                width: 100%;
+            }
+
+            .services-box {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .service {
+                width: 80%;
+            }
+
+            .works-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-box {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .works-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <h2>Online Portfolio</h2>
+        <ul>
+            <li><a href="#hero">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#services">SERVICES</a></li>
+            <li><a href="#skills">SKILLS</a></li>
+            <li><a href="#testimonial">TESTIMONIAL</a></li>
+            <li><a href="#experience">EXPERIENCE</a></li>
+            <li><a href="#works">WORKS</a></li>
+            <li><a href="#blog">BLOG</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-text">
+            <h1>SIDDHARTH BISWAS</h1>
+            <p>I’m a growing web developer who loves creating websites and simple applications. I work with HTML, CSS, JavaScript, React, Node.js, and MongoDB. I focus on writing clean code and building projects that solve real problems while improving my skills every day.</p>
+            <button>Hire Me</button>
+        </div>
+        <div class="hero-img">
+            <img src="SS.jpeg" alt="Profile Image">
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <h2 class="section-title">ABOUT ME</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>I blend expertise with industry knowledge to deliver high-quality development work.</p>
+                <p>I build and manage scalable software applications using modern tools and technologies.</p>
+                <a href="Siddharth Biswas Resume(TnP).pdf" target="_blank" class="resume-btn">View My Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+        <h2 class="section-title">SERVICES</h2>
+        <div class="services-box">
+            <div class="service">Web Development</div>
+            <div class="service">UI / UX Design</div>
+            <div class="service">Software Consulting</div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <h2 class="section-title">SKILLS</h2>
+        <div class="skill-item">HTML, CSS, JavaScript</div>
+        <div class="skill-item">React & Node.js</div>
+        <div class="skill-item">MongoDB & SQL</div>
+    </section>
+
+    <!-- TESTIMONIAL -->
+    <section id="testimonial">
+        <h2 class="section-title">TESTIMONIAL</h2>
+        <div class="testimonial">
+            “Excellent work and very professional. Highly recommended.”
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+        <h2 class="section-title">EXPERIENCE</h2>
+        <div class="exp-item">CodSoft - Full-Stack Developer </div>
+        <div class="exp-item">Full-Stack Developer — Freelance</div>
+    </section>
+
+    <!-- WORKS -->
+    <section id="works">
+        <h2 class="section-title">PROJECTS / WORKS</h2>
+        <div class="works-grid">
+            <div class="work-box">Weather App</div>
+            <div class="work-box">Movie Recommendation System</div>
+            <div class="work-box">Spotify Clone</div>
+        </div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blog">
+        <h2 class="section-title">BLOG</h2>
+        <div class="blog-post">How to Learn Web Development</div>
+        <div class="blog-post">Why UI/UX Matters</div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2 class="section-title">CONTACT ME</h2>
+        <div class="contact-box">
+            <p><strong>Email:</strong> biswassiddharth109@gmail.com</p>
+            <p><strong>Phone:</strong> +91 90048 13763</p>
+            <p>You can reach me via email or phone for any inquiries.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Your Name. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
